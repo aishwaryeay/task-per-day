@@ -4,19 +4,13 @@ import { useState } from 'react'
 function App() {
 
   const [count , setCount] = useState(0)
-  const [isDisabled , setIsDisabled] = useState(false)
 
   function handleIncr() {
-    setCount(count + 1)
-    setIsDisabled(false)
+    setCount(prev => prev + 1)
   }
 
   function handleDecr() {
-    if (count > 0 ) {
-      setCount(count - 1)
-    } else {
-      setIsDisabled(true)
-    }
+    setCount(prev => Math.max(prev-1, 0))
   }
 
   return (
@@ -24,7 +18,7 @@ function App() {
       <button onClick={handleIncr}> Incr </button>
       <h1>{count}</h1>
       <button onClick={handleDecr}
-      disabled = {isDisabled}> Decr </button>
+      disabled = {count === 0}> Decr </button>
     </>
   )
 }
