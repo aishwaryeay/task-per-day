@@ -2,10 +2,15 @@
     <head>
         <title>Center a div</title>
         <style>
-            body {
+            .container {
                 margin: 0;
                 box-sizing: border-box;
                 background-color: yellow;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             .box {
                 background-color: pink;
@@ -14,7 +19,9 @@
             }
         </style>
     </head>
-    <body class="container">
-        <div class="box"></div>
+    <body>
+        <div class="container">
+            <div class="box"></div>
+        </div> 
     </body>
 </html>
