@@ -2,13 +2,12 @@ import express from 'express'
 
 const app = express()
 
-function logger(method, path, next) {
-    console.log(method + " " + path + new Date())
+function logger(req, res, next) {
+    console.log(req.method + " " + req.path + new Date())
     next()
 }
 
-app.get("/", logger , (req, res, next) => {
-    logger(req.method, req.path, next)
+app.get("/", logger , (req, res) => {
     res.send("Hello world")
 })
 
